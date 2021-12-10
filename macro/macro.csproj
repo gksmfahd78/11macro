@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cookie.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

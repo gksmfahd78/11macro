@@ -129,6 +129,7 @@ namespace macro
                 CookieCollection cookieCollection = new CookieCollection();
                 cookieCollection = cookie.getCookie(driver);
                 driver.Navigate().GoToUrl(URL);
+                driver.
                 driverWait(10);
                 signInWay();
                 if (signInCheck())
