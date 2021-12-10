@@ -99,7 +99,6 @@ namespace macro
 
             else
             {
-                CookieContainer cookie = new CookieContainer();
                 signinData.setUserID(id_text_box.Text);
                 signinData.setUserPw(pw_text_box.Text);
 
@@ -117,16 +116,18 @@ namespace macro
                     Properties.Settings.Default.Save();
                 }
 
-                mainSignIn(cookie);
+                mainSignIn();
             }
         }
 
-        private void mainSignIn(CookieContainer cookie)
+        private void mainSignIn()
         {
             try
             {
                 driver = new ChromeDriver(driverService, options);
-
+                Cookie cookie = new Cookie();
+                CookieCollection cookieCollection = new CookieCollection();
+                cookieCollection = cookie.getCookie(driver);
                 driver.Navigate().GoToUrl(URL);
                 driverWait(10);
                 signInWay();
@@ -243,14 +244,6 @@ namespace macro
                 else
                     return false;
             }
-        }
-
-        private Mat screenShot2Mat(Screenshot ss)
-        {
-            Mat mat;
-            Bitmap bitmap;
-
-            return mat;
         }
 
         private void driverWait(int time)
